@@ -8,11 +8,23 @@
     <title>My Vanilla JS App</title>
 </head>
 <body>
-    <h1>Hello, Vanilla JS!</h1>
-    <p id="output">This is a simple web app.</p>
-    <script src="script.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <a href="./html/page1.html" class="button">Open File 1</a>
-    <a href="./html/page2.html" class="button">Open File 2</a>
+<div class="container mt-5">
+    <div class="header mb-3">
+        <h1>Enter Coordinates</h1>
+    </div>
+    <div id="inputArea">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Latitude" aria-label="Latitude">
+            <input type="text" class="form-control" placeholder="Longitude" aria-label="Longitude">
+            <button class="btn btn-outline-secondary" type="button" id="addInput">+</button>
+        </div>
+    </div>
+    <div class="mb-3">
+        <button class="btn btn-primary" type="button" id="okButton">OK</button>
+    </div>
+</div>
+
+<script src="js/bootstrap.bundle.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
