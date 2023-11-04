@@ -1,7 +1,16 @@
+html, body {
+    height: 100%;
+    background-color: indigo !important;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+}
+
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #2980b9;
     color: #fff;
     text-decoration: none;
     border: none;
@@ -11,7 +20,7 @@
 }
 
 .button:hover {
-    background-color: #2980b9;
+    /*background-color: #2980b9;*/
 }
 
 .input-group input {
