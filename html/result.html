@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" src="https://cdn.jsdelivr.net/npm/zoomist@1/dist/zoomist.min.css"/>
     <title>RailLinkScape</title>
 </head>
 <body>
@@ -32,12 +33,16 @@
         <h1 class="display-5" style="font-weight: bold;">The results are...</h1>
     </div>
     <div class="d-flex justify-content-center pb-3">
-        <iframe src="image-zoom.html" style="min-width: 1000px; min-height: 500px;"></iframe>
+        <div id="zoomable-container">
+            <div id="zoomable-image" class="zoomable-element" data-zoomist-src="../resources/DEM_COPERNICUS_30_Topographic.jpg"></div>
+            <canvas id="zoomable-path" class="zoomable-element"></canvas>
+        </div>
     </div>
 </div>
 
 
 <script src="../js/bootstrap.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/zoomist@1/dist/zoomist.min.js"></script>
 <script src="../script.js"></script>
 </body>
 </html>

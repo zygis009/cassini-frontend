@@ -35,44 +35,41 @@ function removeInput(btn) {
  * Zooming stuff below...
  */
 
-const zoomableContainer = document.getElementById('zoomable-container');
-const zoomableImage = document.getElementById('zoomable-image');
-const svgRoad = document.getElementById('svg-road');
+const zoomableCanvas = document.getElementById('zoomable-path');
 
 let scale = 1;
-const initialStrokeWidth = 1; // Set your desired initial stroke width here
+let transform = [];
 
+const path = [
+    [100, 100],
+    [200, 100],
+    [200, 200],
+];
 
-zoomableContainer.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    const scaleFactor = 0.1;
-
-    if (e.deltaY > 0) {
-        scale -= scaleFactor;
-    } else {
-        scale += scaleFactor;
-    }
-
-    // Limit the minimum and maximum zoom levels
-    scale = Math.min(3, Math.max(1, scale));
-
-    // Calculate the mouse position relative to the image container
-    const mouseX = e.clientX - zoomableContainer.getBoundingClientRect().left;
-    const mouseY = e.clientY - zoomableContainer.getBoundingClientRect().top;
-    const transformOriginX = (mouseX / zoomableContainer.clientWidth) * 100;
-    const transformOriginY = (mouseY / zoomableContainer.clientHeight) * 100;
-
-    // Apply the zoom transformation to the image
-    zoomableImage.style.transform = `scale(${scale})`;
-    zoomableImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
-
-    // Calculate the adjusted stroke width based on the current scale
-    const adjustedStrokeWidth = initialStrokeWidth / scale;
-
-    // Apply the adjusted stroke width to the SVG road
-
-    svgRoad.style.transform = `scale(${scale})`;
-    svgRoad.style.strokeWidth = `${adjustedStrokeWidth}px`;
-    svgRoad.style.strokeWidth = `${adjustedStrokeWidth}px`;
-    svgRoad.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+const zoomist = new Zoomist('#zoomable-image');
+zoomist.on('zoom', zoom => {
+    scale = zoom;
+    drawPath();
 });
+zoomist.on('drag', t => {
+    transform = t;
+    drawPath();
+});
+
+function drawPath() {
+    const ctx = zoomableCanvas.getContext("2d");
+    ctx.save();
+    ctx.clearRect(0, 0, zoomableCanvas.width, zoomableCanvas.height);
+    ctx.transform(scale, 0, 0, scale, transform.x, transform.y);
+    ctx.beginPath();
+    ctx.moveTo(path[0][0], path[0][1]);
+    path.slice(1).forEach(p => {
+        ctx.lineTo(p[0], p[1]);
+    })
+    ctx.stroke();
+    ctx.restore();
+}
+
+drawPath();
+
+
