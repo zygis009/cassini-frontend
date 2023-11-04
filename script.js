@@ -30,3 +30,39 @@ document.addEventListener('DOMContentLoaded', function () {
 function removeInput(btn) {
     btn.closest('.input-group').remove();
 }
+
+/**
+ * Zooming stuff below...
+ */
+
+const imageContainer = document.querySelector('.image-container');
+const zoomableImage = document.getElementById('zoomable-image');
+
+let scale = 1;
+
+imageContainer.addEventListener('wheel', (e) => {
+    e.preventDefault();
+
+    const scaleFactor = 0.1;
+
+    // Get the current mouse position relative to the image container
+    const mouseX = e.clientX - imageContainer.getBoundingClientRect().left;
+    const mouseY = e.clientY - imageContainer.getBoundingClientRect().top;
+
+    if (e.deltaY > 0) {
+        scale -= scaleFactor;
+    } else {
+        scale += scaleFactor;
+    }
+
+    // Limit the minimum and maximum zoom levels
+    scale = Math.min(3, Math.max(1, scale));
+
+    // Calculate the transformation origin based on the mouse position
+    const transformOriginX = (mouseX / imageContainer.clientWidth) * 100;
+    const transformOriginY = (mouseY / imageContainer.clientHeight) * 100;
+
+    // Apply the zoom transformation and set the origin
+    zoomableImage.style.transform = `scale(${scale})`;
+    zoomableImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+});
