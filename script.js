@@ -40,10 +40,8 @@ const zoomableImage = document.getElementById('zoomable-image');
 const svgRoad = document.getElementById('svg-road');
 
 let scale = 1;
-let isDragging = false;
-let dragStartX, dragStartY;
-let dragOffsetX = 0;
-let dragOffsetY = 0;
+const initialStrokeWidth = 1; // Set your desired initial stroke width here
+
 
 zoomableContainer.addEventListener('wheel', (e) => {
     e.preventDefault();
@@ -68,8 +66,13 @@ zoomableContainer.addEventListener('wheel', (e) => {
     zoomableImage.style.transform = `scale(${scale})`;
     zoomableImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
 
-    // Reverse the scaling for the SVG road
-    const svgScale = scale;
-    svgRoad.style.transform = `scale(${svgScale})`;
+    // Calculate the adjusted stroke width based on the current scale
+    const adjustedStrokeWidth = initialStrokeWidth / scale;
+
+    // Apply the adjusted stroke width to the SVG road
+
+    svgRoad.style.transform = `scale(${scale})`;
+    svgRoad.style.strokeWidth = `${adjustedStrokeWidth}px`;
+    svgRoad.style.strokeWidth = `${adjustedStrokeWidth}px`;
     svgRoad.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
 });
