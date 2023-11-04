@@ -1,15 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const inputArea = document.getElementById('inputArea');
+    const inputArea = document.getElementById('input-area');
     const addButton = document.getElementById('addInput');
 
     addButton.addEventListener('click', function () {
         const newInputGroup = document.createElement('div');
-        newInputGroup.classList.add('input-group', 'mb-4');
+        newInputGroup.classList.add('js-waypoint-prototype');
 
         newInputGroup.innerHTML = `
-            <input type="text" class="form-control" placeholder="Latitude" aria-label="Latitude">
-            <input type="text" class="form-control" placeholder="Longitude" aria-label="Longitude">
-            <button class="btn btn-danger" type="button" onclick="removeInput(this)">–</button>
+            <p class="mb-2">Enter the intermediate point:</p>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Latitude" aria-label="Latitude">
+                <input type="text" class="form-control" placeholder="Longitude" aria-label="Longitude">
+                <button class="btn btn-danger" type="button" onclick="removeInput(this)">–</button>
+            </div>
         `;
 
         inputArea.appendChild(newInputGroup);
@@ -28,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function removeInput(btn) {
-    btn.closest('.input-group').remove();
+    btn.closest('.js-waypoint-prototype').remove();
 }
 
 /**
