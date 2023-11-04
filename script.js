@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     addButton.addEventListener('click', function () {
         const newInputGroup = document.createElement('div');
-        newInputGroup.classList.add('input-group', 'mb-3');
+        newInputGroup.classList.add('input-group', 'mb-4');
 
         newInputGroup.innerHTML = `
             <input type="text" class="form-control" placeholder="Latitude" aria-label="Latitude">
             <input type="text" class="form-control" placeholder="Longitude" aria-label="Longitude">
-            <button class="btn btn-outline-danger" type="button" onclick="removeInput(this)">-</button>
+            <button class="btn btn-danger" type="button" onclick="removeInput(this)">–</button>
         `;
 
         inputArea.appendChild(newInputGroup);
