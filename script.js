@@ -35,19 +35,19 @@ function removeInput(btn) {
  * Zooming stuff below...
  */
 
-const imageContainer = document.querySelector('.image-container');
+const zoomableContainer = document.getElementById('zoomable-container');
 const zoomableImage = document.getElementById('zoomable-image');
+const svgRoad = document.getElementById('svg-road');
 
 let scale = 1;
+let isDragging = false;
+let dragStartX, dragStartY;
+let dragOffsetX = 0;
+let dragOffsetY = 0;
 
-imageContainer.addEventListener('wheel', (e) => {
+zoomableContainer.addEventListener('wheel', (e) => {
     e.preventDefault();
-
     const scaleFactor = 0.1;
-
-    // Get the current mouse position relative to the image container
-    const mouseX = e.clientX - imageContainer.getBoundingClientRect().left;
-    const mouseY = e.clientY - imageContainer.getBoundingClientRect().top;
 
     if (e.deltaY > 0) {
         scale -= scaleFactor;
@@ -58,11 +58,18 @@ imageContainer.addEventListener('wheel', (e) => {
     // Limit the minimum and maximum zoom levels
     scale = Math.min(3, Math.max(1, scale));
 
-    // Calculate the transformation origin based on the mouse position
-    const transformOriginX = (mouseX / imageContainer.clientWidth) * 100;
-    const transformOriginY = (mouseY / imageContainer.clientHeight) * 100;
+    // Calculate the mouse position relative to the image container
+    const mouseX = e.clientX - zoomableContainer.getBoundingClientRect().left;
+    const mouseY = e.clientY - zoomableContainer.getBoundingClientRect().top;
+    const transformOriginX = (mouseX / zoomableContainer.clientWidth) * 100;
+    const transformOriginY = (mouseY / zoomableContainer.clientHeight) * 100;
 
-    // Apply the zoom transformation and set the origin
+    // Apply the zoom transformation to the image
     zoomableImage.style.transform = `scale(${scale})`;
     zoomableImage.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
+
+    // Reverse the scaling for the SVG road
+    const svgScale = scale;
+    svgRoad.style.transform = `scale(${svgScale})`;
+    svgRoad.style.transformOrigin = `${transformOriginX}% ${transformOriginY}%`;
 });
