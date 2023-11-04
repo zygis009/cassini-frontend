@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', function () {
         // You'll need to define where the OK button should redirect or what it should do.
         window.location.href = '#'; // Set the URL where you want to redirect or add your logic here
     });
+
+
+    // Loading
+    const loader = document.getElementById('loader');
+
+    loader.addEventListener('')
 });
 
 function removeInput(btn) {
