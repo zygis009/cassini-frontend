@@ -1,0 +1,16 @@
+{
+  "name": "cassini-frontend",
+  "version": "1.0.0",
+  "description": "despacito",
+  "main": "script.js",
+  "scripts": {
+    "install": "npm install",
+    "run": "http-server -p 8080"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "http-server": "^14.1.1"
+  }
+}
