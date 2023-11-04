@@ -4,8 +4,6 @@
   "description": "despacito",
   "main": "script.js",
   "scripts": {
-    "install": "npm install",
-    "run": "http-server -p 8080"
   },
   "author": "",
   "license": "ISC",
