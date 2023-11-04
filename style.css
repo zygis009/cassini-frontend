@@ -1,7 +1,16 @@
+html, body {
+    height: 100%;
+    background-color: indigo !important;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+}
+
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #2980b9;
     color: #fff;
     text-decoration: none;
     border: none;
@@ -11,7 +20,7 @@
 }
 
 .button:hover {
-    background-color: #2980b9;
+    /*background-color: #2980b9;*/
 }
 
 .input-group input {
@@ -35,4 +44,26 @@
     color: #fff;
     background-color: #dc3545;
     border-color: #dc3545;
+}
+
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+.loader {
+    border: 12px solid #ffb612;
+    border-top: 12px solid #45b17e;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
