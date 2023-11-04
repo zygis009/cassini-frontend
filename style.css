@@ -13,3 +13,26 @@
 .button:hover {
     background-color: #2980b9;
 }
+
+.input-group input {
+    flex: 1;
+    margin-right: 5px;
+}
+
+/* Styling for the input group specifically for latitude and longitude */
+.input-group {
+    display: flex;
+    justify-content: center;
+}
+
+/* Additional CSS for buttons */
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
