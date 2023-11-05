@@ -68,6 +68,11 @@ p, h1, h2, h3, h4, h5, h6 {
     100% { transform: rotate(360deg); }
 }
 
-.offcanvas p, .offcanvas input, .offcanvas button {
+.offcanvas p, .offcanvas input, .offcanvas button, .offcanvas a {
     font-size: 20px;
+}
+
+.increase-cuz-alan-said-so p{
+    font-size: 28px;
+    color: #ffb612 !important;
 }

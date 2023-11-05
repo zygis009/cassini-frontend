@@ -25,29 +25,55 @@
     </div>
 </nav>
 
-<div class="offcanvas offcanvas-start" style="background-color: #020d33; width: 50vw" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div class="offcanvas offcanvas-start" style="background-color: #45b17e; width: 50vw" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
-        <h1 class="offcanvas-title" id="offcanvasExampleLabel">Sidebar</h1>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <h2 class="offcanvas-title text-black" id="offcanvasExampleLabel">Railway specifications</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body" style="background-color: #020d33; width: 50vw">
-        <h3>Railway specifications</h3>
+    <div class="p-3 offcanvas-body" style="background-color: #020d33; width: 50vw">
         <div class="container">
             <div>
-                <p>Locations:</p>
-                <div class="px-2 pb-4">
+                <div class="py-4">
                     <div class="list-group form-group">
-                        <input type="text" readonly class="list-group-item form-control" value="co1">
-                        <input type="text" readonly class="list-group-item form-control" value="co2">
+                        <p>Point A:</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" readonly placeholder="Latitude" aria-label="Latitude" value="-6.204482">
+                            <input type="text" class="form-control" readonly placeholder="Longitude" aria-label="Longitude" value="35.723086">
+                        </div>
+                        <p>Point B:</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" readonly placeholder="Latitude" aria-label="Latitude" value="-6.546498">
+                            <input type="text" class="form-control" readonly placeholder="Longitude" aria-label="Longitude" value="35.649496">
+                        </div>
                     </div>
                 </div>
             </div>
-            <div><p>Distance: 100km</p></div>
-            <div><p>Build costs: 10$</p></div>
-            <div><p>Maintenance costs: 0.15$</p></div>
-            <div class="container-fluid">
-                <button class="btn btn-primary" style="background-color: #ffb612">Adjust</button>
-                <button class="btn btn-primary" style="background-color: #45b17e">Generate report</button>
+            <div class="row">
+                <div class="col-6">
+                    <p>Distance:</p>
+                </div>
+                <div class="col-6 text-end increase-cuz-alan-said-so">
+                    <p>45.4 km</p>
+                </div>
+
+                <div class="col-6">
+                    <p>Estimated build costs:</p>
+                </div>
+                <div class="col-6 text-end increase-cuz-alan-said-so">
+                    <p>130.3 million €</p>
+                </div>
+
+                <div class="col-6">
+                    <p>Maintenance costs:</p>
+                </div>
+                <div class="col-6 text-end increase-cuz-alan-said-so">
+                    <p>3.5 million € / year</p>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a href="../resources/Infrastructure-report.pdf" class="btn" style="background-color: #ffb612">Generate report</a>
+                <button class="btn btn-primary" style="background-color: #45b17e">Adjust</button>
             </div>
         </div>
     </div>
