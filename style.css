@@ -67,3 +67,7 @@ p, h1, h2, h3, h4, h5, h6 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+.offcanvas p, .offcanvas input, .offcanvas button {
+    font-size: 20px;
+}
