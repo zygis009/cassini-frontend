@@ -43,17 +43,18 @@ const map = L.map('map', {
     maxBoundsViscosity: 1.0,
 }).setView([0.5, 0.5], 11);
 map.setMinZoom(map.getBoundsZoom(map.options.maxBounds, true));
+
 // TODO Get rid of absolute paths
-const layerTrueColor = L.imageOverlay('file:///home/karol/dev/contests/cassini23/cassini-frontend/resources/Sentinel-2_L2A_True_color.jpg', [[0, 0], [1, 1]], {opacity: 1});
-const layerB = L.imageOverlay('file:///home/karol/dev/contests/cassini23/cassini-frontend/resources/Sentinel-2_L2A_Custom_script.jpg', [[0, 0], [1, 1]], {opacity: 1});
-const layerC = L.imageOverlay('file:///home/karol/dev/contests/cassini23/cassini-frontend/resources/DEM_COPERNICUS_30_Topographic.jpg', [[0, 0], [1, 1]], {opacity: 1});
+L.control.layers({
+    "True color": L.imageOverlay('file:///home/karol/dev/contests/cassini23/cassini-frontend/resources/Sentinel-2_L2A_True_color.jpg', [[0, 0], [1, 1]], {opacity: 1}).addTo(map),
+    "Lorem": L.imageOverlay('file:///home/karol/dev/contests/cassini23/cassini-frontend/resources/Sentinel-2_L2A_Custom_script.jpg', [[0, 0], [1, 1]], {opacity: 1}),
+    "ipsum": L.imageOverlay('file:///home/karol/dev/contests/cassini23/cassini-frontend/resources/DEM_COPERNICUS_30_Topographic.jpg', [[0, 0], [1, 1]], {opacity: 1}),
+}).addTo(map);
 
-const baseLayers = {
-    "True color": layerTrueColor,
-    "Layer B": layerB,
-    "Layer C": layerC,
-};
-L.control.layers(baseLayers).addTo(map);
-layerTrueColor.addTo(map);
+const pathCoordinates = [ // TODO Replace with real path
+    [0.1, 0.1], // New York City
+    [0.6, 0.2], // Los Angeles
+    [0.7, 0.99] // London
+];
 
-
+const path = L.polyline(pathCoordinates, { color: 'red' }).addTo(map);
