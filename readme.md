@@ -1,11 +1,5 @@
-To run the server you have to have npm. Then run:
+`npm install`
 
-`npm install -g http-server`
+ `http-server -p 8080`
 
-Then run:
-
-`http-server`
-
-Then go to `localhost:8080` in your browser.
-
-If you made changes to Javascript, you have to hard reload the page to see the changes.
+go to http://localhost:8080
