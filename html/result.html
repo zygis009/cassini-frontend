@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <title>Result</title>
 </head>
 <body>
@@ -57,12 +58,13 @@
         <h1 class="display-5" style="font-weight: bold;">The results are...</h1>
     </div>
     <div class="d-flex justify-content-center pb-3">
-    <iframe src="image-zoom.html" style="min-width: 1000px; min-height: 500px;"></iframe>
+        <div id="map" style="width: 1000px; height: 600px;"></div>
     </div>
 </div>
 
 
 <script src="../js/bootstrap.bundle.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script src="../script.js"></script>
 </body>
 </html>
