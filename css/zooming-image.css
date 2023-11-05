@@ -3,16 +3,35 @@ body {
     overflow: hidden;
 }
 
-.image-container {
+.container {
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
+}
+
+.image-container {
+    position: relative;
+}
+
+#zoomable-container {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+    overflow: hidden;
 }
 
 #zoomable-image {
     width: 100%;
     height: auto;
-    display: block;
-    transition: transform 0.3s;
+}
+
+#svg-road {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* This allows the underlying elements to receive events */
 }
