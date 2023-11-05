@@ -57,7 +57,10 @@ L.control.layers({
 
 const pathCoordinates = [ // TODO Replace with real path
     [0.79, 0.45],
+    [0.76, 0.52],
+    [0.63, 0.53],
     [0.5, 0.5],
+    [0.37, 0.55],
     [0.13, 0.38]
 ];
 L.polyline(pathCoordinates, { color: 'red' }).addTo(map);
