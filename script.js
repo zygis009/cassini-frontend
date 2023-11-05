@@ -36,8 +36,11 @@ function removeInput(btn) {
 /**
  * Map stuff below...
  */
+const layersAspectRatio = 0.834;
+const mapBounds = [[0, 0], [1, layersAspectRatio]];
+
 const map = L.map('map', {
-    maxBounds: [[0, 0], [1, 1]],
+    maxBounds: mapBounds,
     zoomSnap: 0.01,
     maxBoundsViscosity: 1.0,
 }).setView([0.5, 0.5], 11);
@@ -46,22 +49,22 @@ map.setMinZoom(map.getBoundsZoom(map.options.maxBounds, true));
 const createImagePath = (imageName) =>
     'https://github.com/zygis009/cassini-frontend/blob/main/resources/' + imageName + '?raw=true';
 L.control.layers({
-    "True color": L.imageOverlay(createImagePath('Sentinel-2_L2A_True_color.jpg'), [[0, 0], [1, 1]], {opacity: 1}).addTo(map),
-    "Lorem": L.imageOverlay(createImagePath('Sentinel-2_L2A_Custom_script.jpg'), [[0, 0], [1, 1]], {opacity: 1}),
-    "ipsum": L.imageOverlay(createImagePath('2023-11-05-00_00_2023-11-05-23_59_DEM_COPERNICUS_30_Custom_script.jpg'), [[0, 0], [1, 1]], {opacity: 1}),
-    "dolor": L.imageOverlay(createImagePath('2023-10-30-00_00_2023-10-30-23_59_Sentinel-2_L2A_Scene_classification_map_.jpg'), [[0, 0], [1, 1]], {opacity: 1}),
+    "True color": L.imageOverlay(createImagePath('Sentinel-2_L2A_True_color.jpg'), mapBounds, {opacity: 1}).addTo(map),
+    "Lorem": L.imageOverlay(createImagePath('Sentinel-2_L2A_Custom_script.jpg'), mapBounds, {opacity: 1}),
+    "ipsum": L.imageOverlay(createImagePath('2023-11-05-00_00_2023-11-05-23_59_DEM_COPERNICUS_30_Custom_script.jpg'), mapBounds, {opacity: 1}),
+    "dolor": L.imageOverlay(createImagePath('2023-10-30-00_00_2023-10-30-23_59_Sentinel-2_L2A_Scene_classification_map_.jpg'), mapBounds, {opacity: 1}),
 }).addTo(map);
 
 const pathCoordinates = [ // TODO Replace with real path
-    [0.1, 0.1], // New York City
-    [0.6, 0.2], // Los Angeles
-    [0.7, 0.9] // London
+    [0.79, 0.45],
+    [0.5, 0.5],
+    [0.13, 0.38]
 ];
 L.polyline(pathCoordinates, { color: 'red' }).addTo(map);
 
 const markers = [
-    [0.1, 0.1],
-    [0.7, 0.9]
+    [0.79, 0.45],
+    [0.13, 0.38]
 ];
 markers.forEach(m => {
     L.marker(m).addTo(map);
