@@ -39,8 +39,10 @@ function removeInput(btn) {
  */
 const map = L.map('map', {
     maxBounds: [[0, 0], [1, 1]],
-}).setView([0, 0], 13);
-map.setMinZoom(map.getBoundsZoom(map.options.maxBounds)); // TODO Fix
+    zoomSnap: 0.01,
+    maxBoundsViscosity: 1.0,
+}).setView([0.5, 0.5], 11);
+map.setMinZoom(map.getBoundsZoom(map.options.maxBounds, true));
 // TODO Get rid of absolute paths
 const layerTrueColor = L.imageOverlay('file:///home/karol/dev/contests/cassini23/cassini-frontend/resources/Sentinel-2_L2A_True_color.jpg', [[0, 0], [1, 1]], {opacity: 1});
 const layerB = L.imageOverlay('file:///home/karol/dev/contests/cassini23/cassini-frontend/resources/Sentinel-2_L2A_Custom_script.jpg', [[0, 0], [1, 1]], {opacity: 1});
@@ -52,6 +54,6 @@ const baseLayers = {
     "Layer C": layerC,
 };
 L.control.layers(baseLayers).addTo(map);
-layerA.addTo(map);
+layerTrueColor.addTo(map);
 
 
