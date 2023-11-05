@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = '#'; // Set the URL where you want to redirect or add your logic here
     });
 
-
     // Loading
     const loader = document.getElementById('loader');
 
